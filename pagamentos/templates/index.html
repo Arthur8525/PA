@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Bem-vindo ao Sistema Financeiro Alecrim Cuidados Especiais</h2>
+<p>Gerencie seus pagamentos e acompanhe seu fluxo de caixa de forma eficiente.</p>
+
+<a href="{% url 'listar_pagamentos' %}">Ver Pagamentos</a> |
+<a href="{% url 'adicionar_pagamento' %}">Adicionar Pagamento</a> |
+<a href="{% url 'relatorios' %}">Relatórios</a>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Lista de Pagamentos</h2>
+<table border="1">
+    <tr>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Data de Vencimento</th>
+        <th>Status</th>
+        <th>Ações</th>
+    </tr>
+    {% for pagamento in pagamentos %}
+    <tr>
+        <td>{{ pagamento.descricao }}</td>
+        <td>R$ {{ pagamento.valor }}</td>
+        <td>{{ pagamento.data_vencimento }}</td>
+        <td>{{ pagamento.status }}</td>
+        <td>
+            <a href="{% url 'detalhes_pagamento' pagamento.id %}">Ver</a> |
+            <a href="{% url 'editar_pagamento' pagamento.id %}">Editar</a> |
+            <a href="{% url 'excluir_pagamento' pagamento.id %}">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
