@@ -1,0 +1,16 @@
+{% extends "pagamentos/base.html" %}
+
+{% block title %}Detalhes do Pagamento{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Detalhes do Pagamento</h2>
+    <div class="card p-3 shadow-sm">
+        <p><strong>Descrição:</strong> {{ pagamento.descricao }}</p>
+        <p><strong>Valor:</strong> R$ {{ pagamento.valor }}</p>
+        <p><strong>Data de Vencimento:</strong> {{ pagamento.data_vencimento }}</p>
+        <p><strong>Status:</strong> {{ pagamento.get_status_display }}</p>
+    </div>
+    <a href="{% url 'listar_pagamentos' %}" class="btn btn-secondary mt-3">Voltar</a>
+</div>
+{% endblock %}

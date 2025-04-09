@@ -1,0 +1,39 @@
+{% extends "pagamentos/base.html" %}
+
+{% block title %}Início | Alecrim Financeiro{% endblock %}
+
+{% block content %}
+<div class="text-center mb-4">
+    <h2 class="mt-4">Bem-vindo ao Sistema Financeiro da Alecrim Cuidados Especiais</h2>
+    <p class="lead">Gerencie seus pagamentos e acompanhe seu fluxo de caixa de forma eficiente.</p>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-3">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body text-center">
+                <h5 class="card-title">Ver Pagamentos</h5>
+                <a href="{% url 'listar_pagamentos' %}" class="btn btn-light btn-sm">Acessar</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body text-center">
+                <h5 class="card-title">Adicionar Pagamento</h5>
+                <a href="{% url 'criar_pagamentos' %}" class="btn btn-light btn-sm">Novo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-body text-center">
+                <h5 class="card-title">Relatórios</h5>
+                <a href="{% url 'relatorios' %}" class="btn btn-light btn-sm">Visualizar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

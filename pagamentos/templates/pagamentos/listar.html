@@ -1,0 +1,48 @@
+{% extends "pagamentos/base.html" %}
+
+{% block title %}Lista de Pagamentos{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Lista de Pagamentos</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="table-success">
+                <tr>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Data de Vencimento</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pagamento in pagamentos %}
+                <tr>
+                    <td>{{ pagamento.descricao }}</td>
+                    <td>R$ {{ pagamento.valor }}</td>
+                    <td>{{ pagamento.data_vencimento }}</td>
+                    <td>
+                        {% if pagamento.status == "Pago" %}
+                            <span class="badge bg-success">Pago</span>
+                        {% else %}
+                            <span class="badge bg-warning text-dark">Pendente</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'detalhes_pagamento' pagamento.id %}" class="btn btn-sm btn-info">Ver</a>
+                        <a href="{% url 'editar_pagamento' pagamento.id %}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="{% url 'excluir_pagamento' pagamento.id %}" class="btn btn-sm btn-danger">Excluir</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">Nenhum pagamento encontrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

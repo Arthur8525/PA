@@ -1,0 +1,15 @@
+{% extends "pagamentos/base.html" %}
+
+{% block title %}Confirmar Exclusão{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-danger">Excluir Pagamento</h2>
+    <p class="mb-3">Tem certeza de que deseja excluir <strong>"{{ pagamento.descricao }}"</strong>?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sim, excluir</button>
+        <a href="{% url 'listar_pagamentos' %}" class="btn btn-secondary ms-2">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
