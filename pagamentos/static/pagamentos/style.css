@@ -1,0 +1,17 @@
+html, body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+}
+
+.wrapper {
+    flex: 1;
+}
+
+footer {
+    background-color: #2d6a4f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
